@@ -52,7 +52,7 @@ const CreatePost = () => {
             LableName="Prompt"
             type="text"
             name="prompt"
-            placeholder="a sea otter with a pearl earring by Johannes Vermeer"
+            placeholder="A futuristic cyborg dance club, neon lights"
             value={form.prompt}
             handleChange={handleChange}
             isSupriseMe
@@ -92,17 +92,15 @@ const CreatePost = () => {
 
         <div className="mt-10">
           <p className="mt-2 text-[#666e75] text-[14px] ">
-            {" "}
-            Once you have created the image ypu want, you can share it with
+            Once you have created the image you want, you can share it with
             others in the commiunity
           </p>
           <button
             type="submit"
             className="mt-3 text-white bg-[#6469ff]
-            font-medium rounded-md text-sm w-full sm-w-auto px-5 py-2.5 text-center"
+            font-medium rounded-md text-sm w-150 sm-w-auto px-5 py-2.5 text-center"
           >
-            {" "}
-            Share with Commiunity{" "}
+            Share with Commiunity
           </button>
         </div>
       </form>
