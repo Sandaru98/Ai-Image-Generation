@@ -43,7 +43,31 @@ const CreatePost = () => {
     }
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (form.prompt && form.photo) {
+      setLoading(true);
+
+      try {
+        const response = await fetch("http://localhost:8080/api/v1/post", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...form }),
+        });
+        await response.json();
+        navigate("/");
+      } catch (err) {
+        alert(err);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      alert("Please enter a prompt and generate an image");
+    }
+  };
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -123,7 +147,7 @@ const CreatePost = () => {
             className="mt-3 text-white bg-[#6469ff]
             font-medium rounded-md text-sm w-150 sm-w-auto px-5 py-2.5 text-center"
           >
-            Share with Commiunity
+            {loading ? "Sharing..." : "Share with the Community"}
           </button>
         </div>
       </form>
